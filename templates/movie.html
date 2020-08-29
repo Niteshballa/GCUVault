@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name=”description” content=”Latest Netflix Movies,Gcu vault,gcu,gcuvault,gcu vault,latest netflix releases,latest,netlix,releases,movies,Upcoming Netflix releases,Latest prime movies,Upcoming prime releases,Top Suggestions,Best Movies to watch,Top webseries to watch,top 10 anime,top anime to watch and many more” />
+		<meta name=”keywords” content=”Latest Netflix Movies,Upcoming Netflix releases,Latest prime movies,Upcoming prime releases,Top movie Suggestions,{%for mve in mves%} {{mve.title}}, {%endfor%}{%for mve in series%} {{mve.title}}, {%endfor%}{%for mve in articles%} {{mve.title}}, {%endfor%}Best webseries suggestions,Best Movies to watch,Top webseries to watch,top 10 anime,top anime,top movies to watch,Jurassic world,A.X.L,4th republic,last days of american crime,wira,forsenic,breaking in,Da 5 Bloods,Latest netflix releases,latest OTT releases,Upcoming OTT releasesGulabo Sitabo Penguin,Ponmangal Vandhal,Rocketman,The vast of the night,Dora the lost city of gold,Crawl,The NUN,Sleepless,possession,Balle Perdue,upgrade,Red dawn,Anne Frank,Penguin,Hanna,The Good Liar,LOL,How to get away with murder,Marcella,the woods,Reality Z,Naruto,Naruto Shippuden,one punch man,hunter x hunter,fairy tale,Attack on titans,Attack on titans season 2,Haikyuu,My hero academia,Death Note,Dark Night,The God Father,Top 20 Hollywood ,top movies,jurassic,jurassic world 2015,jurassic park,avatar,titanic,inception,terminator 2 judgement day,terminator 2,pirates of the caribbiean,jurassic park,pulp fiction,star wars,star wars a new hope,the shawshank redemption,Schinder's list,Good fellas,Casa Blanca,toy story 3,citizen kane,saving pirate ryan,psyco,Dr.strange love,raiders of last Ark,best,upcoming,top,amazon,netflix,movies,releases,latest netflix webseries,upcoming netflix webseries,top netflix webseries,best,netflix movies,latest,upcoming prime webseries,upcoming webseries,upcoming webseries releases,prime,OTT,latest OTT,upcoming OTT,movie,movies,webseries,latest,top,bollywood,hollywood,tollywood,anime,series” />
+		<meta name="yandex-verification" content="66fa839e3e5ff469" />
+		<link ref = "canonical" href="https://www.gcuvault.com">
+    <title>GCU Vault</title>
+    <link rel="icon" href="{%static 'image/icon.png' %}"  type="image/icon type"/>
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+		<link href="{%static 'fonts/font-awesome.min.cs'%}s" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+	<link href="{%static 'mystyle.css'%}" rel="stylesheet" type="text/css"/>
+	<link href="{%static 'css/styles.css'%}" rel="stylesheet" type="text/css"/>
+	
+    <!-- Modernizr JS -->
+</head>
+<body>
+  <div class="container2">
+  	<header class="site-header">
+      <div class="main-navigation">
+        <div class="Appointment">
+                <div class="book_btn">
+                  <a href="" data-signin="login" data-type="login">Contact</a>
+                </div>
+            </div>
+        </div>
+		<div class="main-navigation">
+	        <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+	        <ul class="menu">
+	          <li class="menu-item current-menu-item"><a href="{% url 'vault:home'%}">Home</a></li>
+	          <li class="menu-item "><a href="{% url 'vault:latest'%}">Latest</a>
+	            <ul class="submenu">
+	                <li><a href="/latestnetflix">Netflix Movies</a></li>
+	                <li><a href="/latestprime">Prime Videos</a></li>
+	                <li><a href="/latestnetflixseries">Netflix Series</a></li>
+	            </ul>
+	          </li>
+	          <li class="menu-item"><a href="{% url 'vault:upcoming'%}">Upcoming</a>
+	            <ul class="submenu">
+	                <li><a href="/upcomingnetflix">Netflix</a></li>
+	                <li><a href="/upcomingprime">Prime Videos</a></li>
+	            </ul>
+	          </li>
+	          <li class="menu-item"><a href="/suggestion">Suggestions</a>
+	            <ul class="submenu">
+	                <li><a href="/mvesuggestion">Movie Vault</a></li>
+	                <li><a href="/wbssuggestion">Series Vault</a></li>
+	                <li><a href="/anime">Anime vault</a></li>
+	            </ul>
+	          </li>
+	          <li class="menu-item"><a href="/toprated">Top Rated</a></li>
+	          <li class="menu-item"><a href="/about">About us</a></li>
+	        </ul> <!-- .menu -->
+	      </div>
+		  <a href="home" id="branding">
+	        <img src="{%static 'images/gcuvlogo.png'%}" alt="" class="logo">
+
+		  </a>
+	  
+
+	      <div class="mobile-navigation"></div>
+	    </div>
+
+  </header>
+</div>
+			<main class="content">
+				<div class="single" style="margin-top:-40px;">
+	
+					<section class="trailer">
+						<h3>Trailer</h3>
+						<div class="trailer_frame">
+							<iframe width="560" height="700" src="{{mve.trailer}}" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</section>
+	
+					<section class="movie">
+						<img src="{{mve.image.url}}" >
+						<ul>
+							<li>{{mve.title}}</li>
+							<li>Avaiilable on : <a href="{{mve.OTT_link}}">{{mve.OTT_name}}</a></li>
+							<li>OTT release date : {{mve.OTT_date}}</li>
+							<li>Plot : {{mve.plot}}</li>
+							<li>Genre : {{mve.genre}}</li>
+							<li>Cast : {{mve.actors}}</li>
+							<li>Year : {{mve.year}}</li>
+							<li>Rating : {{mve.rating}}%</li>
+							<li>length : {{mve.length}}min</li>
+							<li>language : {{mve.language}}</li>
+							<li>Producer : {{mve.producer}}</li>
+							<li>Director : {{mve.director}}</li>
+						</ul>
+					</section>
+	
+	
+				</div>
+			</main>
+
+
+
+
+	
+
+				<!--Certificate div class= colophon-->
+
+		<!-- Default snippet for navigation -->
+		<script
+		src="https://code.jquery.com/jquery-3.2.1.js"
+		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+		crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{%static 'script.js'%}"></script>
+
+
+
+<script src="{%static 'js/jquery-1.11.1.min.js'%}"></script>
+<script src="{%static 'js/plugins.js'%}"></script>
+<script src="{%static 'js/app.js'%}"></script>
+		
+
+	</body>
+
+</html>

@@ -1,0 +1,77 @@
+{%load static%}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="{%static 'js/prostyle.js'%}">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<head>
+  <title>Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+  		<div class="col-sm-10"><h1>Hi , {{user.username}} !</h1></div>
+    	<div class="col-sm-2"><a href="editprofile"><button >Edit</button></a></div>
+    </div>
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+              
+        <form class="form">
+            {%csrf_token%}
+      <div class="text-center">
+        {%if userpro.profilepic%}
+        <img src="{{userpro.profilepic.url}}" class="avatar img-circle img-thumbnail" alt="Profile pic">
+        {%endif%}
+        <h6>Profile pic</h6>
+        <input type="file" class="text-center center-block file-upload" name="profilepic" > 
+      </div></form>
+      <br>
+      <ul class="list-group" >
+        <li class="list-group-item text-muted">Progress <i class="fa fa-dashboard fa-1x"></i></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Participated quizzes</strong></span>{{userpro.quiz}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Rewards</strong></span>{{userpro.rewards}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>latest Quiztime Score</strong></span>{{userpro.quiztime}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>latest WeekendQuiz Score</strong></span>{{userpro.weekendquiz}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>latest WeeklyQuiz Score</strong></span>{{userpro.weeklyquiz}}</li>
+      </ul> 
+          
+          </div>
+          <div class="col-sm-9">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="">Profile</a></li>
+               
+              </ul>
+
+              
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <ul class="list-group">
+                <li class="list-group-item text-muted">Profile<i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>First Name</strong></span>{{user.first_name}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Last Name</strong></span>{{user.last_name}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Gender</strong></span>{{userpro.gender}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span>{{user.email}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Phone</strong></span>{{userpro.phone}}</li>
+              </ul> 
+              
+             </div><!--/tab-pane-->
+             
+               
+          </div><!--/tab-content-->
+      </div><!--/col-9-->
+    </div><!--/row-->
+                                                      
