@@ -82,9 +82,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'GCUVault',
-        'USER': 'postgres',
+        'USER': 'Nitesh',
         'PASSWORD' : 'Amma143#21',
-        'HOST':'localhost',
+        'HOST':'35.223.23.20',
+        'PORT':'5432',
+        'OPTIONS': {
+            'sslmode': 'verify-ca', #leave this line intact
+            'sslrootcert': '/your/path/to/server-ca.pem',
+            "sslcert": "/your/path/to/client-cert.pem",
+            "sslkey": "/your/path/to/client-key.pem",
+        }
     }
 }
 
